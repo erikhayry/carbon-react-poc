@@ -4,6 +4,12 @@
 
 - Never add a `className` prop to a component (in its props type, destructuring, or pass-through to children) unless the user explicitly asks for it in that request. Styling is handled inside the component.
 
+## Types (Zod)
+
+- Always define types with Zod schemas. Never hand-write an `interface` or a standalone `type` alias for data or props; declare the schema and derive the type from it.
+- Naming convention: the schema is `const <Type>Schema`, the type is `type <Type> = z.infer<typeof <Type>Schema>`, e.g. `const CardPropsSchema = z.object({ ... })` and `export type CardProps = z.infer<typeof CardPropsSchema>`.
+- Compose schemas from other schemas (`.extend()`, `.pick()`, nesting) instead of duplicating fields.
+
 ## E2E tests (Playwright)
 
 - Always use the Page Object Model. Page objects live in `e2e/pages/` (one class per page, extending `AppPage` for the shared layout).
