@@ -4,6 +4,12 @@
 
 - Never add a `className` prop to a component (in its props type, destructuring, or pass-through to children) unless the user explicitly asks for it in that request. Styling is handled inside the component.
 
+## Styling (CSS)
+
+- Never write CSS unless the user explicitly asks for it in that request. That covers new `.css`/`.scss` files, new rules or declarations in `src/index.css`, inline `style={{ ... }}` props, and CSS-in-JS.
+- Build UI out of Carbon components (`@carbon/react`) and their own props instead. If Carbon cannot express a layout or look without CSS, say so and ask rather than adding styles.
+- When CSS *is* asked for, prefer overriding Carbon theme tokens (`--cds-*` in `src/index.css`) over writing rules that target Carbon's internal class names.
+
 ## Types (Zod)
 
 - Always define types with Zod schemas. Never hand-write an `interface` or a standalone `type` alias for data or props; declare the schema and derive the type from it.
