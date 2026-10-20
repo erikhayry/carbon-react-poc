@@ -2,12 +2,10 @@ import type { Locator, Page } from "@playwright/test";
 import { z } from "zod";
 import en from "../../messages/en.json" with { type: "json" };
 import sv from "../../messages/sv.json" with { type: "json" };
+import { baseLocale } from "../../src/paraglide/runtime";
+import type { Locale } from "../../src/types/locale";
 
-const messages = { en, sv };
-
-// Must stay in sync with the files in messages/
-export const LocaleSchema = z.enum(["en", "sv"]);
-export type Locale = z.infer<typeof LocaleSchema>;
+const messages: Record<Locale, typeof en> = { en, sv };
 
 const NavLinkSchema = z.enum(["home", "about", "card42"]);
 type NavLink = z.infer<typeof NavLinkSchema>;
@@ -21,7 +19,7 @@ export class AppPage {
   readonly languageSwitcher: Locator;
   readonly html: Locator;
 
-  constructor(page: Page, locale: Locale = "en") {
+  constructor(page: Page, locale: Locale = baseLocale) {
     this.page = page;
     this.locale = locale;
     this.t = messages[locale];

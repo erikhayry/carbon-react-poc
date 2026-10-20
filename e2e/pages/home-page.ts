@@ -1,5 +1,6 @@
 import type { Locator, Page } from "@playwright/test";
-import { AppPage, type Locale } from "./app-page";
+import { AppPage } from "./app-page";
+import type { Locale } from "../../src/types/locale";
 
 export class HomePage extends AppPage {
   /** Root URL without a locale prefix. */
