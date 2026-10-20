@@ -1,6 +1,5 @@
 import { Heading, Section } from "@carbon/react";
 import { createFileRoute } from "@tanstack/react-router";
-import "../App.css";
 import { m } from "../paraglide/messages";
 
 function Home() {
