@@ -1,12 +1,14 @@
-import { Section, Heading, Tile } from "@carbon/react";
+import { Section, Heading, Tile, Stack } from "@carbon/react";
 import type { CardProps } from "@/components/card/cardType";
 
 export const Card = ({ title, children }: CardProps) => {
   return (
     <Tile>
       <Section>
-        <Heading>{title}</Heading>
-        {children}
+        <Stack gap={3}>
+          <Heading>{title}</Heading>
+          {children}
+        </Stack>
       </Section>
     </Tile>
   );

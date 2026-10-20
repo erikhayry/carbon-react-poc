@@ -4,11 +4,9 @@ import { m } from "@/paraglide/messages";
 
 function Home() {
   return (
-    <>
-      <Section>
-        <Heading>{m.get_started()}</Heading>
-      </Section>
-    </>
+    <Section>
+      <Heading>{m.get_started()}</Heading>
+    </Section>
   );
 }
 

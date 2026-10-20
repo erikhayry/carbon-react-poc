@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Section } from "@carbon/react";
+import { Section, unstable_Text as Text } from "@carbon/react";
 import { Card } from "@/components/card/card";
 import { m } from "@/paraglide/messages";
 
@@ -9,7 +9,7 @@ const CardPage = () => {
   return (
     <Section>
       <Card title={m.card_title({ cardId })}>
-        <p>{m.card_body()}</p>
+        <Text as="p">{m.card_body()}</Text>
       </Card>
     </Section>
   );

@@ -1,26 +1,30 @@
-import { createRootRoute, Link, Outlet } from "@tanstack/react-router";
-import { Heading } from "@carbon/react";
+import { createLink, createRootRoute, Outlet } from "@tanstack/react-router";
+import { Heading, Link, Stack, unstable_Text as Text } from "@carbon/react";
 import { LanguageSwitcher } from "@/components/language-switcher/language-switcher";
 import { m } from "@/paraglide/messages";
 
+// Carbon's Link renders the anchor; TanStack's createLink keeps `to`/`params` typed
+const NavLink = createLink(Link);
+
 const RootLayout = () => {
   return (
-    <>
+    <Stack gap={5}>
       <Heading>{m.app_title()}</Heading>
-      <nav aria-label={m.nav_label()}>
-        <Link to="/">{m.nav_home()}</Link> <Link to="/about">{m.nav_about()}</Link>{" "}
-        <Link to="/cards/$cardId" params={{ cardId: "42" }}>
+      <Stack as="nav" aria-label={m.nav_label()} orientation="horizontal" gap={5}>
+        <NavLink to="/">{m.nav_home()}</NavLink>
+        <NavLink to="/about">{m.nav_about()}</NavLink>
+        <NavLink to="/cards/$cardId" params={{ cardId: "42" }}>
           {m.nav_card({ cardId: "42" })}
-        </Link>
-      </nav>
+        </NavLink>
+      </Stack>
       <LanguageSwitcher />
       <Outlet />
-    </>
+    </Stack>
   );
 };
 
 const NotFound = () => {
-  return <p>{m.not_found()}</p>;
+  return <Text as="p">{m.not_found()}</Text>;
 };
 
 export const Route = createRootRoute({

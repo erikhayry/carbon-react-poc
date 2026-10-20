@@ -1,6 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
+import { GlobalTheme } from '@carbon/react'
 import '@/index.css'
 import { routeTree } from '@/routeTree.gen'
 import { deLocalizeUrl, getLocale, localizeUrl } from '@/paraglide/runtime'
@@ -24,6 +25,10 @@ document.documentElement.lang = getLocale()
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    {/* Carbon's theme context. It only provides the theme name; the tokens
+        themselves stay on :root in index.css, so the override there still wins */}
+    <GlobalTheme theme="white">
+      <RouterProvider router={router} />
+    </GlobalTheme>
   </StrictMode>,
 )
