@@ -3,8 +3,8 @@
 @import "@carbon/styles/css/styles.css";
 
 :root {
-    /* POC: override a Carbon theme token. --cds-layer is the background of
+  /* POC: override a Carbon theme token. --cds-layer is the background of
      layered surfaces; Tile (used by Card) reads it via background-color.
      Carbon's default for the white theme is #f4f4f4. */
-    --cds-layer: var(--accent-bg);
+  --cds-layer: var(--accent-bg);
 }

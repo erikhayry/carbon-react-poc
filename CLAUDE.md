@@ -8,7 +8,7 @@
 
 - Never write CSS unless the user explicitly asks for it in that request. That covers new `.css`/`.scss` files, new rules or declarations in `src/index.css`, inline `style={{ ... }}` props, and CSS-in-JS.
 - Build UI out of Carbon components (`@carbon/react`) and their own props instead. If Carbon cannot express a layout or look without CSS, say so and ask rather than adding styles.
-- When CSS *is* asked for, prefer overriding Carbon theme tokens (`--cds-*` in `src/index.css`) over writing rules that target Carbon's internal class names.
+- When CSS _is_ asked for, prefer overriding Carbon theme tokens (`--cds-*` in `src/index.css`) over writing rules that target Carbon's internal class names.
 
 ## Types (Zod)
 

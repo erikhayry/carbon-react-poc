@@ -23,7 +23,7 @@
       "@/*": ["./src/*"],
       "@e2e/*": ["./e2e/*"],
       "@test/*": ["./test/*"],
-      "@messages/*": ["./messages/*"],
+      "@messages/*": ["./messages/*"]
     },
 
     /* Linting */
@@ -32,7 +32,7 @@
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true,
+    "noUncheckedSideEffectImports": true
   },
-  "include": ["src", "e2e", "test"],
+  "include": ["src", "e2e", "test"]
 }
