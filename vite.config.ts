@@ -1,10 +1,22 @@
+import { createRequire } from "node:module";
 import { paraglideVitePlugin } from "@inlang/paraglide-js";
 import { tanstackRouter } from "@tanstack/router-plugin/vite";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vitest/config"; // <-- Changed from "vite" to "vitest/config"
 
+// @carbon/styles is a transitive dependency of @carbon/react, so pnpm does not
+// link it at the project root. Resolve it the way @carbon/react would.
+const require = createRequire(import.meta.url);
+const carbonRequire = createRequire(require.resolve("@carbon/react/package.json"));
+const carbonStyles = carbonRequire.resolve("@carbon/styles/css/styles.css");
+
 // https://vite.dev/config/
 export default defineConfig({
+  resolve: {
+    alias: {
+      "@carbon/styles/css/styles.css": carbonStyles,
+    },
+  },
   plugins: [
     paraglideVitePlugin({
       project: "./project.inlang",
