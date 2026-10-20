@@ -1,16 +1,19 @@
 import type { Locator, Page } from "@playwright/test";
-import { AppPage } from "./app-page";
+import { AppPage, type Locale } from "./app-page";
 
 export class NotFoundPage extends AppPage {
-  static readonly path = "/does-not-exist";
   readonly message: Locator;
 
-  constructor(page: Page) {
-    super(page);
-    this.message = page.getByText("Page not found");
+  constructor(page: Page, locale?: Locale) {
+    super(page, locale);
+    this.message = page.getByText(this.t.not_found);
+  }
+
+  static path(locale: Locale) {
+    return AppPage.localizedPath(locale, "/does-not-exist");
   }
 
   async goto() {
-    await this.page.goto(NotFoundPage.path);
+    await this.page.goto(NotFoundPage.path(this.locale));
   }
 }

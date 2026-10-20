@@ -13,16 +13,16 @@ test("navigates between routes with client-side links", async ({ page }) => {
   await expect(home.getStarted).toBeVisible();
   await home.markDocument();
 
-  await home.clickNavLink("About");
-  await expect(page).toHaveURL(AboutPage.path);
+  await home.clickNavLink("about");
+  await expect(page).toHaveURL(AboutPage.path("en"));
   await expect(about.heading).toBeVisible();
 
-  await about.clickNavLink("Card 42");
-  await expect(page).toHaveURL(CardPage.path("42"));
+  await about.clickNavLink("card42");
+  await expect(page).toHaveURL(CardPage.path("en", "42"));
   await expect(card.heading("42")).toBeVisible();
 
-  await card.clickNavLink("Home");
-  await expect(page).toHaveURL(HomePage.path);
+  await card.clickNavLink("home");
+  await expect(page).toHaveURL(HomePage.path("en"));
   await expect(home.getStarted).toBeVisible();
 
   expect(await home.isSameDocument()).toBe(true);
@@ -47,11 +47,11 @@ test("supports browser back and forward", async ({ page }) => {
   const about = new AboutPage(page);
 
   await home.goto();
-  await home.clickNavLink("About");
-  await expect(page).toHaveURL(AboutPage.path);
+  await home.clickNavLink("about");
+  await expect(page).toHaveURL(AboutPage.path("en"));
 
   await page.goBack();
-  await expect(page).toHaveURL(HomePage.path);
+  await expect(page).toHaveURL(HomePage.path("en"));
   await expect(home.getStarted).toBeVisible();
 
   await page.goForward();
