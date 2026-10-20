@@ -25,5 +25,29 @@ dist-ssr
 
 # Vitest reports and artifacts
 .vitest/
+coverage/
 
-playwright-report
+# Playwright output: reports, traces, screenshots and the last-run summary
+playwright-report/
+test-results/
+blob-report/
+.playwright/
+
+# TanStack Router scratch directory (see .tanstack/tmp)
+.tanstack/
+
+# Vite cache when it is not inside node_modules
+.vite/
+
+# TypeScript incremental build output
+*.tsbuildinfo
+
+# Claude Code session data: worktrees, local settings and scratch files
+.claude/worktrees/
+.claude/.cc-writes/
+.claude/settings.local.json
+
+# Environment files, except any committed example
+.env
+.env.*
+!.env.example
