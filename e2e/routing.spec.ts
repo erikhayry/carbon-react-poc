@@ -1,0 +1,66 @@
+import { test, expect } from "@playwright/test";
+import { AboutPage } from "./pages/about-page";
+import { CardPage } from "./pages/card-page";
+import { HomePage } from "./pages/home-page";
+import { NotFoundPage } from "./pages/not-found-page";
+
+test("navigates between routes with client-side links", async ({ page }) => {
+  const home = new HomePage(page);
+  const about = new AboutPage(page);
+  const card = new CardPage(page);
+
+  await home.goto();
+  await expect(home.getStarted).toBeVisible();
+  await home.markDocument();
+
+  await home.clickNavLink("About");
+  await expect(page).toHaveURL(AboutPage.path);
+  await expect(about.heading).toBeVisible();
+
+  await about.clickNavLink("Card 42");
+  await expect(page).toHaveURL(CardPage.path("42"));
+  await expect(card.heading("42")).toBeVisible();
+
+  await card.clickNavLink("Home");
+  await expect(page).toHaveURL(HomePage.path);
+  await expect(home.getStarted).toBeVisible();
+
+  expect(await home.isSameDocument()).toBe(true);
+});
+
+test("renders a route when loaded directly by URL", async ({ page }) => {
+  const about = new AboutPage(page);
+  await about.goto();
+
+  await expect(about.heading).toBeVisible();
+});
+
+test("passes dynamic params from the file name", async ({ page }) => {
+  const card = new CardPage(page);
+  await card.goto("abc");
+
+  await expect(card.heading("abc")).toBeVisible();
+});
+
+test("supports browser back and forward", async ({ page }) => {
+  const home = new HomePage(page);
+  const about = new AboutPage(page);
+
+  await home.goto();
+  await home.clickNavLink("About");
+  await expect(page).toHaveURL(AboutPage.path);
+
+  await page.goBack();
+  await expect(page).toHaveURL(HomePage.path);
+  await expect(home.getStarted).toBeVisible();
+
+  await page.goForward();
+  await expect(about.heading).toBeVisible();
+});
+
+test("shows not found for unknown routes", async ({ page }) => {
+  const notFound = new NotFoundPage(page);
+  await notFound.goto();
+
+  await expect(notFound.message).toBeVisible();
+});

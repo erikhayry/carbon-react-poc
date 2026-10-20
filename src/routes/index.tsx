@@ -1,16 +1,16 @@
 import { useState } from "react";
-import heroImg from "./assets/hero.png";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "./assets/vite.svg";
-import "./App.css";
+import { createFileRoute } from "@tanstack/react-router";
+import heroImg from "../assets/hero.png";
+import reactLogo from "../assets/react.svg";
+import viteLogo from "../assets/vite.svg";
+import "../App.css";
 import { Heading, Section } from "@carbon/react";
 
-function App() {
+function Home() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <Heading>POC</Heading>
       <Section>
         <Section id="center">
           <div className="hero">
@@ -129,4 +129,6 @@ function App() {
   );
 }
 
-export default App;
+export const Route = createFileRoute("/")({
+  component: Home,
+});

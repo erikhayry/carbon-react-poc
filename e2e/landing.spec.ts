@@ -1,9 +1,9 @@
 import { test, expect } from "@playwright/test";
+import { HomePage } from "./pages/home-page";
 
 test("Should load the app", async ({ page }) => {
-  // Visit root page
-  await page.goto("/");
+  const home = new HomePage(page);
+  await home.goto();
 
-  // rediect to login page
-  await expect(page.getByText("Get started!!!")).toBeVisible();
+  await expect(home.getStarted).toBeVisible();
 });
