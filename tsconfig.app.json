@@ -18,6 +18,14 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
+    /* Path aliases */
+    "paths": {
+      "@/*": ["./src/*"],
+      "@e2e/*": ["./e2e/*"],
+      "@test/*": ["./test/*"],
+      "@messages/*": ["./messages/*"],
+    },
+
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
@@ -26,5 +34,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
   },
-  "include": ["src", "e2e"],
+  "include": ["src", "e2e", "test"],
 }

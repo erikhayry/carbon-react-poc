@@ -1,6 +1,6 @@
 import type { Locator, Page } from "@playwright/test";
-import { AppPage } from "./app-page";
-import type { Locale } from "../../src/types/locale";
+import { AppPage } from "@e2e/pages/app-page";
+import type { Locale } from "@/types/locale";
 
 export class AboutPage extends AppPage {
   readonly heading: Locator;

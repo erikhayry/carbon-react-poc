@@ -2,6 +2,8 @@ import { defineConfig, devices } from "@playwright/test";
 
 export default defineConfig({
   testDir: "./e2e",
+  // Resolve the "@/..." path aliases in specs and page objects
+  tsconfig: "./tsconfig.app.json",
   timeout: 60 * 1000,
   fullyParallel: true,
   retries: 1,

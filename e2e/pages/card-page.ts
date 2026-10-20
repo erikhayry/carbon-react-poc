@@ -1,6 +1,6 @@
 import type { Locator } from "@playwright/test";
-import { AppPage } from "./app-page";
-import type { Locale } from "../../src/types/locale";
+import { AppPage } from "@e2e/pages/app-page";
+import type { Locale } from "@/types/locale";
 
 export class CardPage extends AppPage {
   static path(locale: Locale, cardId: string) {

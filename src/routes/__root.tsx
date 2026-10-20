@@ -1,7 +1,7 @@
 import { createRootRoute, Link, Outlet } from "@tanstack/react-router";
 import { Heading } from "@carbon/react";
-import { LanguageSwitcher } from "../components/language-switcher/language-switcher";
-import { m } from "../paraglide/messages";
+import { LanguageSwitcher } from "@/components/language-switcher/language-switcher";
+import { m } from "@/paraglide/messages";
 
 const RootLayout = () => {
   return (

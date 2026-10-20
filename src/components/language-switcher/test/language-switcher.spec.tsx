@@ -1,6 +1,6 @@
-import { baseLocale } from "../../../paraglide/runtime";
-import { m } from "../../../paraglide/messages";
-import { renderLanguageSwitcher } from "./utils/renderLanguageSwitcher";
+import { baseLocale } from "@/paraglide/runtime";
+import { m } from "@/paraglide/messages";
+import { renderLanguageSwitcher } from "@/components/language-switcher/test/utils/renderLanguageSwitcher";
 
 describe("LanguageSwitcher", () => {
   it("lists all locales with the current one selected", () => {

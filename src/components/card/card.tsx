@@ -1,5 +1,5 @@
 import { Section, Heading, Tile } from "@carbon/react";
-import type { CardProps } from "./cardType";
+import type { CardProps } from "@/components/card/cardType";
 
 export const Card = ({ title, children }: CardProps) => {
   return (

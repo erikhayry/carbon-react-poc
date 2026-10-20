@@ -1,7 +1,7 @@
 import { Select, SelectItem } from "@carbon/react";
-import { m } from "../../paraglide/messages";
-import { getLocale, locales, setLocale } from "../../paraglide/runtime";
-import { LocaleSchema, type Locale } from "../../types/locale";
+import { m } from "@/paraglide/messages";
+import { getLocale, locales, setLocale } from "@/paraglide/runtime";
+import { LocaleSchema, type Locale } from "@/types/locale";
 
 // Each language is named in its own language, whichever locale is active
 const languageNames: Record<Locale, () => string> = {

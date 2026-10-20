@@ -1,8 +1,8 @@
 import { test, expect } from "@playwright/test";
-import { AboutPage } from "./pages/about-page";
-import { CardPage } from "./pages/card-page";
-import { HomePage } from "./pages/home-page";
-import { NotFoundPage } from "./pages/not-found-page";
+import { AboutPage } from "@e2e/pages/about-page";
+import { CardPage } from "@e2e/pages/card-page";
+import { HomePage } from "@e2e/pages/home-page";
+import { NotFoundPage } from "@e2e/pages/not-found-page";
 
 test("renders Swedish when the URL has the /sv prefix", async ({ page }) => {
   const about = new AboutPage(page, "sv");

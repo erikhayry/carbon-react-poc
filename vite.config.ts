@@ -1,4 +1,5 @@
 import { createRequire } from "node:module";
+import { fileURLToPath } from "node:url";
 import { paraglideVitePlugin } from "@inlang/paraglide-js";
 import { tanstackRouter } from "@tanstack/router-plugin/vite";
 import react from "@vitejs/plugin-react";
@@ -10,11 +11,18 @@ const require = createRequire(import.meta.url);
 const carbonRequire = createRequire(require.resolve("@carbon/react/package.json"));
 const carbonStyles = carbonRequire.resolve("@carbon/styles/css/styles.css");
 
+const dir = (path: string) => fileURLToPath(new URL(path, import.meta.url));
+
 // https://vite.dev/config/
 export default defineConfig({
   resolve: {
     alias: {
       "@carbon/styles/css/styles.css": carbonStyles,
+      // Keep these in sync with "paths" in tsconfig.app.json
+      "@e2e": dir("./e2e"),
+      "@test": dir("./test"),
+      "@messages": dir("./messages"),
+      "@": dir("./src"),
     },
   },
   plugins: [
