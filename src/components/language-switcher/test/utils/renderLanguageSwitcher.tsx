@@ -1,6 +1,6 @@
-import { render } from "@testing-library/react";
-import { m } from "@/paraglide/messages";
 import { LanguageSwitcher } from "@/components/language-switcher/language-switcher";
+import { m } from "@/paraglide/messages";
+import { render } from "@testing-library/react";
 
 export function renderLanguageSwitcher() {
   const { getByRole } = render(<LanguageSwitcher />);

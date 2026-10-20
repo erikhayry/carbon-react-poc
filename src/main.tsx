@@ -1,10 +1,10 @@
+import "@/index.css";
+import { RouterProvider, createRouter } from "@tanstack/react-router";
+import { deLocalizeUrl, getLocale, localizeUrl } from "@/paraglide/runtime";
+import { GlobalTheme } from "@carbon/react";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { RouterProvider, createRouter } from "@tanstack/react-router";
-import { GlobalTheme } from "@carbon/react";
-import "@/index.css";
 import { routeTree } from "@/routeTree.gen";
-import { deLocalizeUrl, getLocale, localizeUrl } from "@/paraglide/runtime";
 
 const router = createRouter({
   routeTree,

@@ -1,4 +1,4 @@
-import { Section, Heading, Tile, Stack } from "@carbon/react";
+import { Heading, Section, Stack, Tile } from "@carbon/react";
 import type { CardProps } from "@/components/card/cardType";
 
 export const Card = ({ title, children }: CardProps) => {

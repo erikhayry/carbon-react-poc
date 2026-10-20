@@ -24,6 +24,14 @@
 - Specs must not contain raw selectors (`page.getByRole`, `page.locator`, etc.) or URL strings. Locators, paths and actions belong in page objects; specs only call page objects and make assertions.
 - Assertions (`expect`) stay in the specs, not in page objects.
 
+## Imports
+
+- Imports must be sorted alphabetically, enforced by oxlint's `sort-imports` rule (`pnpm lint`).
+- The rule sorts on the first imported binding, not the module path, and is case-sensitive: `import { AppPage } from "@e2e/pages/app-page"` comes before `import { z } from "zod"`, and uppercase bindings sort before lowercase ones. Do not group external packages apart from `@/` imports.
+- Declarations are ordered by syntax first, then by binding: side-effect only (`import "@/index.css"`), then namespace (`import * as x`), then multi-member, then single-member.
+- Members inside a declaration are sorted too (`{ Heading, Section, Stack, Tile }`); `oxlint --fix` fixes member order, declaration order is manual.
+- Import through the path aliases (`@/`, `@e2e/`, `@test/`, `@messages/`), never relative paths.
+
 ## Translations (Paraglide)
 
 - Never hardcode user-facing text in components or routes. All UI text (including `aria-label`, `alt`, `title`, placeholders and Carbon props like `labelText`) must come from Paraglide messages: `m.some_key()` from `src/paraglide/messages`.

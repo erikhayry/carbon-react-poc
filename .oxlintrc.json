@@ -4,7 +4,8 @@
   "ignorePatterns": ["src/routeTree.gen.ts"],
   "rules": {
     "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
+    "react/only-export-components": ["warn", { "allowConstantExport": true }],
+    "sort-imports": "error"
   },
   "overrides": [
     {

@@ -1,5 +1,5 @@
-import { z } from "zod";
 import { locales } from "@/paraglide/runtime";
+import { z } from "zod";
 
 // Derived from Paraglide's generated locales so the two can never drift apart
 export const LocaleSchema = z.enum(locales);

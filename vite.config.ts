@@ -1,9 +1,9 @@
 import { createRequire } from "node:module";
+import { defineConfig } from "vitest/config"; // <-- Changed from "vite" to "vitest/config"
 import { fileURLToPath } from "node:url";
 import { paraglideVitePlugin } from "@inlang/paraglide-js";
-import { tanstackRouter } from "@tanstack/router-plugin/vite";
 import react from "@vitejs/plugin-react";
-import { defineConfig } from "vitest/config"; // <-- Changed from "vite" to "vitest/config"
+import { tanstackRouter } from "@tanstack/router-plugin/vite";
 
 // @carbon/styles is a transitive dependency of @carbon/react, so pnpm does not
 // link it at the project root. Resolve it the way @carbon/react would.

@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { expect, test } from "@playwright/test";
 import { HomePage } from "@e2e/pages/home-page";
 
 test("Should load the app", async ({ page }) => {

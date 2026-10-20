@@ -1,6 +1,6 @@
-import { render } from "@testing-library/react";
 import { Card } from "@/components/card/card";
 import { CardPropsMock } from "@/components/card/test/utils/mockCard";
+import { render } from "@testing-library/react";
 
 export function renderCard(props = CardPropsMock) {
   const { getByRole } = render(<Card {...props} />);

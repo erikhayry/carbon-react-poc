@@ -1,5 +1,5 @@
-import { createLink, createRootRoute, Outlet } from "@tanstack/react-router";
 import { Heading, Link, Stack, unstable_Text as Text } from "@carbon/react";
+import { Outlet, createLink, createRootRoute } from "@tanstack/react-router";
 import { LanguageSwitcher } from "@/components/language-switcher/language-switcher";
 import { m } from "@/paraglide/messages";
 

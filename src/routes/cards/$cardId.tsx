@@ -1,6 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { Section, unstable_Text as Text } from "@carbon/react";
 import { Card } from "@/components/card/card";
+import { createFileRoute } from "@tanstack/react-router";
 import { m } from "@/paraglide/messages";
 
 const CardPage = () => {

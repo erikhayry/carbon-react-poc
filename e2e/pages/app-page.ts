@@ -1,9 +1,9 @@
 import type { Locator, Page } from "@playwright/test";
-import { z } from "zod";
+import type { Locale } from "@/types/locale";
+import { baseLocale } from "@/paraglide/runtime";
 import en from "@messages/en.json" with { type: "json" };
 import sv from "@messages/sv.json" with { type: "json" };
-import { baseLocale } from "@/paraglide/runtime";
-import type { Locale } from "@/types/locale";
+import { z } from "zod";
 
 const messages: Record<Locale, typeof en> = { en, sv };
 

@@ -1,5 +1,5 @@
-import { z } from "zod";
 import { ReactNodeSchema } from "@/types/custom";
+import { z } from "zod";
 
 export const CardPropsSchema = z.object({
   title: z.string(),
