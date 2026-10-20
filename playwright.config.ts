@@ -28,7 +28,7 @@ export default defineConfig({
   ],
   // Start dev server before tests
   webServer: {
-    command: "pnpm run dev",
+    command: "pnpm run dev --port 5174 --strictPort",
     port: 5174, // <-- Change this from 5174 to 5173 to match baseURL
     reuseExistingServer: !process.env.CI,
     env: {
