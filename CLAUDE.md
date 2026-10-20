@@ -9,6 +9,8 @@
 - Always define types with Zod schemas. Never hand-write an `interface` or a standalone `type` alias for data or props; declare the schema and derive the type from it.
 - Naming convention: the schema is `const <Type>Schema`, the type is `type <Type> = z.infer<typeof <Type>Schema>`, e.g. `const CardPropsSchema = z.object({ ... })` and `export type CardProps = z.infer<typeof CardPropsSchema>`.
 - Compose schemas from other schemas (`.extend()`, `.pick()`, nesting) instead of duplicating fields.
+- Values Zod cannot describe structurally (e.g. `ReactNode`) get a `z.custom<T>()` schema in `src/types/custom.tsx` so the convention still holds.
+- Exceptions: generated files (`src/routeTree.gen.ts`) and third-party module augmentation (`declare module` blocks, e.g. TanStack Router's `Register` interface) must stay plain TypeScript.
 
 ## E2E tests (Playwright)
 

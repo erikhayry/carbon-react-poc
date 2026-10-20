@@ -1,11 +1,16 @@
 import type { Locator, Page } from "@playwright/test";
+import { z } from "zod";
 import en from "../../messages/en.json" with { type: "json" };
 import sv from "../../messages/sv.json" with { type: "json" };
 
 const messages = { en, sv };
 
-export type Locale = keyof typeof messages;
-type NavLink = "home" | "about" | "card42";
+// Must stay in sync with the files in messages/
+export const LocaleSchema = z.enum(["en", "sv"]);
+export type Locale = z.infer<typeof LocaleSchema>;
+
+const NavLinkSchema = z.enum(["home", "about", "card42"]);
+type NavLink = z.infer<typeof NavLinkSchema>;
 
 /** Shared layout from src/routes/__root.tsx, present on every page. */
 export class AppPage {
