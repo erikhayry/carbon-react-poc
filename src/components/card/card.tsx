@@ -1,10 +1,5 @@
-import type { ReactNode } from "react";
 import { Section, Heading, Tile } from "@carbon/react";
-
-type CardProps = {
-  title: string;
-  children?: ReactNode;
-};
+import type { CardProps } from "./cardType";
 
 export const Card = ({ title, children }: CardProps) => {
   return (

@@ -18,7 +18,8 @@
     "@inlang/paraglide-js-react": "^1.0.3",
     "@tanstack/react-router": "^1.170.45",
     "react": "^19.3.1",
-    "react-dom": "^19.3.1"
+    "react-dom": "^19.3.1",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@inlang/paraglide-js": "^2.29.0",
@@ -37,6 +38,7 @@
     "oxlint": "^1.88.0",
     "typescript": "~7.0.2",
     "vite": "^8.3.4",
-    "vitest": "^5.0.5"
+    "vitest": "^5.0.5",
+    "zocker": "^3.0.0"
   }
 }
