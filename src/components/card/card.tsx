@@ -1,9 +1,18 @@
-import { Section, Heading } from "@carbon/react";
+import type { ReactNode } from "react";
+import { Section, Heading, Tile } from "@carbon/react";
 
-export const Card = () => {
+type CardProps = {
+  title: string;
+  children?: ReactNode;
+};
+
+export const Card = ({ title, children }: CardProps) => {
   return (
-    <Section>
-      <Heading>Card</Heading>
-    </Section>
+    <Tile>
+      <Section>
+        <Heading>{title}</Heading>
+        {children}
+      </Section>
+    </Tile>
   );
 };
