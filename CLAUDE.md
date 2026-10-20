@@ -20,7 +20,8 @@
 
 ## E2E tests (Playwright)
 
-- Always use the Page Object Model. Page objects live in `e2e/pages/` (one class per page, extending `AppPage` for the shared layout).
+- Always use the Page Object Model. Each page gets its own folder under `e2e/pages/` holding the page object and a `test/` folder with its spec, e.g. `e2e/pages/login/login-page.ts` and `e2e/pages/login/test/login.spec.ts`. One class per page, extending `AppPage` for the shared layout; `AppPage` itself stays at `e2e/pages/app-page.ts`.
+- A spec covers the page it sits next to. Do not add cross-page specs at the `e2e/` root.
 - Specs must not contain raw selectors (`page.getByRole`, `page.locator`, etc.) or URL strings. Locators, paths and actions belong in page objects; specs only call page objects and make assertions.
 - Assertions (`expect`) stay in the specs, not in page objects.
 

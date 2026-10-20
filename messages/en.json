@@ -1,17 +1,10 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
   "app_title": "POC",
-  "nav_label": "Main",
-  "nav_home": "Home",
-  "nav_about": "About",
-  "nav_card": "Card {cardId}",
   "language_switcher_label": "Language",
   "language_name_en": "English",
   "language_name_sv": "Svenska",
-  "get_started": "Get started!!!",
-  "about_title": "About",
-  "about_body": "This page is rendered from src/routes/about.tsx",
-  "card_title": "Card {cardId}",
-  "card_body": "This page is rendered from src/routes/cards/$cardId.tsx",
+  "landing_title": "Landing",
+  "login_title": "Login",
   "not_found": "Page not found"
 }

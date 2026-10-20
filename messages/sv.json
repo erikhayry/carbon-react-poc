@@ -1,17 +1,10 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
   "app_title": "POC",
-  "nav_label": "Huvudmeny",
-  "nav_home": "Hem",
-  "nav_about": "Om",
-  "nav_card": "Kort {cardId}",
   "language_switcher_label": "Språk",
   "language_name_en": "English",
   "language_name_sv": "Svenska",
-  "get_started": "Kom igång!",
-  "about_title": "Om",
-  "about_body": "Den här sidan renderas från src/routes/about.tsx",
-  "card_title": "Kort {cardId}",
-  "card_body": "Den här sidan renderas från src/routes/cards/$cardId.tsx",
+  "landing_title": "Startsida",
+  "login_title": "Logga in",
   "not_found": "Sidan hittades inte"
 }

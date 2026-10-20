@@ -2,14 +2,14 @@ import type { Locator, Page } from "@playwright/test";
 import { AppPage } from "@e2e/pages/app-page";
 import type { Locale } from "@/types/locale";
 
-export class HomePage extends AppPage {
+export class LandingPage extends AppPage {
   /** Root URL without a locale prefix. */
   static readonly unprefixedPath = "/";
-  readonly getStarted: Locator;
+  readonly heading: Locator;
 
   constructor(page: Page, locale?: Locale) {
     super(page, locale);
-    this.getStarted = page.getByRole("heading", { name: this.t.get_started });
+    this.heading = page.getByRole("heading", { name: this.t.landing_title });
   }
 
   static path(locale: Locale) {
@@ -17,10 +17,10 @@ export class HomePage extends AppPage {
   }
 
   async goto() {
-    await this.page.goto(HomePage.path(this.locale));
+    await this.page.goto(LandingPage.path(this.locale));
   }
 
   async gotoUnprefixed() {
-    await this.page.goto(HomePage.unprefixedPath);
+    await this.page.goto(LandingPage.unprefixedPath);
   }
 }

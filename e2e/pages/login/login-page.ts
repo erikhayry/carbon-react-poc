@@ -2,19 +2,19 @@ import type { Locator, Page } from "@playwright/test";
 import { AppPage } from "@e2e/pages/app-page";
 import type { Locale } from "@/types/locale";
 
-export class AboutPage extends AppPage {
+export class LoginPage extends AppPage {
   readonly heading: Locator;
 
   constructor(page: Page, locale?: Locale) {
     super(page, locale);
-    this.heading = page.getByRole("heading", { name: this.t.about_title });
+    this.heading = page.getByRole("heading", { name: this.t.login_title });
   }
 
   static path(locale: Locale) {
-    return AppPage.localizedPath(locale, "/about");
+    return AppPage.localizedPath(locale, "/login");
   }
 
   async goto() {
-    await this.page.goto(AboutPage.path(this.locale));
+    await this.page.goto(LoginPage.path(this.locale));
   }
 }
